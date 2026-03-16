@@ -1,5 +1,5 @@
 {
-  description = "flake for CrenuNix";
+  description = "flake for Crenu";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -19,7 +19,7 @@
     ...
    }: {
     nixosConfigurations = {
-      CrenuNix = nixpkgs.lib.nixosSystem {
+      crenu = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; inherit zen-browser; };
         modules = [
