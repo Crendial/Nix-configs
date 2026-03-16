@@ -22,7 +22,7 @@
   
   home = {
     shellAliases = {
-      update = "nix flake update /etc/nixos#CrenuNix && sudo nixos-rebuild switch --flake /etc/nixos#CrenuNix";
+      update = "sudo nix flake update /etc/nixos/ && sudo nixos-rebuild switch --flake /etc/nixos/";
     };
   };
   imports = [ inputs.noctalia.homeModules.default ];
