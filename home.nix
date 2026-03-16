@@ -1,8 +1,8 @@
 { config, pkgs, inputs, ... }:
 
 {
-  home.username = "nixtest67";
-  home.homeDirectory = "/home/nixtest67";
+  home.username = "crenu";
+  home.homeDirectory = "/home/crenu";
   home.stateVersion = "25.11";
 
   programs.home-manager.enable = true;
