@@ -25,7 +25,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "CrenuNix"; # Define your hostname.
+  networking.hostName = "Crenu"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -91,9 +91,9 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.nixtest67 = {
+  users.users.crenu = {
     isNormalUser = true;
-    description = "Nixtest67";
+    description = "crenu";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.fish;
     packages = with pkgs; [
@@ -101,23 +101,18 @@
       pkgs.prismlauncher
       pkgs.protonup-qt
       pkgs.alacritty
+      pkgs.vesktop
+      pkgs.vscodium
     ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
   programs.steam.enable = true;
   programs.fish.enable = true;
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     zen-browser.packages.${pkgs.system}.default
     xwayland-satellite
-  #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
