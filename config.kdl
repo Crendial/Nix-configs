@@ -45,8 +45,8 @@ input {
     mouse {
         // off
         // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
+        accel-speed -0.2
+        accel-profile "flat"
         // scroll-method "no-scroll"
     }
 
@@ -105,6 +105,13 @@ input {
     // automatically.
     position x=1280 y=0
 }
+
+// Practical personal example of screen configuration
+// Find out name with niri msg outputs
+// output "DP-1" {
+//    mode "1920x1080@143.997"
+//   position x=0 y=0
+// }
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
@@ -271,6 +278,7 @@ layout {
 spawn-at-startup "waybar"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "noctalia-shell"
+// spawn-at-startup "qs" "-c" "noctalia-shell" worked on Cachy! Not sure which to use.
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -323,15 +331,19 @@ window-rule {
 window-rule {
     match app-id="satty"
     open-floating true
+    match app-id="hyprland-share-picker"
 }
+// hyprland-share-picker here because of main Cachy setup needing it, in case I switch to Nix, it's here!
 
 window-rule {
     match app-id="vesktop"
     match app-id="steam"
     match app-id="zen"
     match app-id="Alacritty"
+    match app-id="obs"
     open-maximized true
 }
+// same reason for OBS here.
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
@@ -612,7 +624,10 @@ binds {
     // a matching layout switch hotkey configured in xkb options above.
     // Having both at once on the same hotkey will break the switching,
     // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
+
     Mod+Space       { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    // if that doesn't work, try Mod+Space { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+
     // Mod+Shift+Space { switch-layout "prev"; }
 
     Print { screenshot; }
@@ -636,4 +651,8 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+}
+
+environment {
+   LANG "en_US.UTF-8"
 }
