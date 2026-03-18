@@ -38,4 +38,13 @@
   imports = [ inputs.noctalia.homeModules.default ];
 
   programs.noctalia-shell.enable = true;
+
+gtk = {
+  enable = true;
+  theme = {
+    name = "Dracula";
+    package = pkgs.dracula-theme;
+  };
+};
+
 }
