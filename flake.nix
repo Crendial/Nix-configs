@@ -19,7 +19,7 @@
     ...
    }: {
     nixosConfigurations = {
-      crenu = nixpkgs.lib.nixosSystem {
+      Crenu = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; inherit zen-browser; };
         modules = [
@@ -28,7 +28,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.nixtest67 = import ./home.nix;
+            home-manager.users.crenu = import ./home.nix;
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];

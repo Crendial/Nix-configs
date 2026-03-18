@@ -320,6 +320,19 @@ window-rule {
     default-column-width {}
 }
 
+window-rule {
+    match app-id="satty"
+    open-floating true
+}
+
+window-rule {
+    match app-id="vesktop"
+    match app-id="steam"
+    match app-id="zen"
+    match app-id="Alacritty"
+    open-maximized true
+}
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
@@ -440,6 +453,7 @@ binds {
     Mod+Shift+J     { focus-monitor-down; }
     Mod+Shift+K     { focus-monitor-up; }
     Mod+Shift+L     { focus-monitor-right; }
+    Mod+Shift+S { spawn "sh" "-c" "grim -g \"$(slurp)\" - | satty --filename -"; }
 
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }

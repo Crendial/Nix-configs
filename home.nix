@@ -9,24 +9,33 @@
   
   programs.fish = {
     enable = true;
+    interactiveShellInit = ''
+    fastfetch
+    '';
+    functions = {
+    update = ''
+      cd /etc/nixos
+      sudo nix flake update
+      sudo nixos-rebuild switch --flake /etc/nixos/#Crenu
+    '';
+   };
   };
 
   home.packages = with pkgs; [
     pkgs.fastfetch
     pkgs.nautilus
+    pkgs.grim
+    pkgs.slurp
+    pkgs.satty
   ];
 
   programs.fastfetch = {
     enable = true;
   };
-  
-  home = {
-    shellAliases = {
-      update = "sudo nix flake update /etc/nixos/ && sudo nixos-rebuild switch --flake /etc/nixos/";
-    };
-  };
+
+  programs.swaylock.enable = true;
+
   imports = [ inputs.noctalia.homeModules.default ];
 
   programs.noctalia-shell.enable = true;
 }
-

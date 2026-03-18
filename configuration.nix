@@ -59,6 +59,7 @@
 
   programs.niri.enable = true;
 
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "fi";
@@ -87,6 +88,17 @@
     #media-session.enable = true;
   };
 
+  services.greetd = {
+    enable = true;
+    settings.default_session = {
+      command = "niri-session";
+      user = "crenu";
+    };
+  };
+
+  boot.kernelParams = [ "quiet" ];
+  boot.plymouth.enable = true;
+ 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -97,7 +109,6 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.fish;
     packages = with pkgs; [
-      kdePackages.kate
       pkgs.prismlauncher
       pkgs.protonup-qt
       pkgs.alacritty
