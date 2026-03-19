@@ -1,5 +1,5 @@
 {
-  description = "flake for Crenu";
+  description = "flake for YOURUSER";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -19,7 +19,7 @@
     ...
    }: {
     nixosConfigurations = {
-      Crenu = nixpkgs.lib.nixosSystem {
+      YOURUSER = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; inherit zen-browser; };
         modules = [
@@ -28,7 +28,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.crenu = import ./home.nix;
+            home-manager.users.YOURUSER = import ./home.nix;
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
