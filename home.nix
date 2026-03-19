@@ -1,8 +1,8 @@
 { config, pkgs, inputs, ... }:
 
 {
-  home.username = "crenu";
-  home.homeDirectory = "/home/crenu";
+  home.username = "YOURUSER";
+  home.homeDirectory = "/home/YOURUSER";
   home.stateVersion = "25.11";
 
   programs.home-manager.enable = true;
@@ -16,7 +16,7 @@
     update = ''
       cd /etc/nixos
       sudo nix flake update
-      sudo nixos-rebuild switch --flake /etc/nixos/#Crenu
+      sudo nixos-rebuild switch --flake /etc/nixos/#YOURUSER
     '';
    };
   };
