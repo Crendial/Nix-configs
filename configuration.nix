@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, inputs, zen-browser,  ... }:
 
 {
@@ -10,7 +6,6 @@
       ./hardware-configuration.nix
     ];
 
-
  nix = {
    package = pkgs.nix;
    extraOptions = ''
@@ -18,25 +13,21 @@
    '';
  };
 
-  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "Crenu"; # Define your hostname.
+  networking.hostName = "YOURUSER"; # Replace that.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
-  time.timeZone = "Europe/Helsinki";
+  time.timeZone = "Europe/Helsinki"; # change if needed
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -52,15 +43,16 @@
     LC_TELEPHONE = "fi_FI.UTF-8";
     LC_TIME = "fi_FI.UTF-8";
   };
+ 
+  # Change Locale stuff if you're from somewhere else.
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  # You can enable this if you still use X11.
+  services.xserver.enable = false;
 
   programs.niri.enable = true;
 
-
   # Configure keymap in X11
+  # Technically no need here but keeping it.
   services.xserver.xkb = {
     layout = "fi";
     variant = "";
@@ -68,6 +60,7 @@
 
   # Configure console keymap
   console.keyMap = "fi";
+  # Change based on keyboard
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -92,7 +85,7 @@
     enable = true;
     settings.default_session = {
       command = "niri-session";
-      user = "crenu";
+      user = "YOURUSER";
     };
   };
 
@@ -103,9 +96,9 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.crenu = {
+  users.users.YOURUSER = {
     isNormalUser = true;
-    description = "crenu";
+    description = "YOURUSER";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.fish;
     packages = with pkgs; [
@@ -133,8 +126,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
