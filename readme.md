@@ -12,7 +12,7 @@ Just an archive of my personal Nix and Niri + Noctalia configs. Configuration.ni
 - Copy and paste the .nix files into /etc/nixos/
 - run "sudo nixos-rebuild switch --flake /etc/nixos/"
 - If that doesn't work, change "switch" into "boot" and restart
-- Run a Niri session and change the base config.kdl to the one provided
+- Run a Niri session and change the base config.kdl to the one provided, found at ~/.config/niri
 - Run "noctalia-shell" once to initialize it, after that you can either run it again or reboot as it starts on boot
 - Run fastfetch --gen-config to, you know, generate a config.
 
