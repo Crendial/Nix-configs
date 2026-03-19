@@ -330,8 +330,8 @@ window-rule {
 
 window-rule {
     match app-id="satty"
-    open-floating true
     match app-id="hyprland-share-picker"
+    open-floating true
 }
 // hyprland-share-picker here because of main Cachy setup needing it, in case I switch to Nix, it's here!
 
