@@ -99,7 +99,7 @@
   users.users.YOURUSER = {
     isNormalUser = true;
     description = "YOURUSER";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.fish;
     packages = with pkgs; [
       pkgs.prismlauncher
@@ -113,10 +113,12 @@
   programs.steam.enable = true;
   programs.fish.enable = true;
   nixpkgs.config.allowUnfree = true;
+  virtualisation.docker.enable = true;
 
   environment.systemPackages = with pkgs; [
     zen-browser.packages.${pkgs.system}.default
     xwayland-satellite
+    docker-compose
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
