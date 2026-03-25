@@ -7,22 +7,29 @@ Just an archive of my personal Nix and Niri + Noctalia configs. Configuration.ni
 - Just software I tend to use
 - An alias for updating and rebuilding the system: "update"
 
-# Installation (NixOS)
-- Read through .nix files and at the very least change every part that says YOURUSER to your actual user
-- Copy and paste the .nix files into /etc/nixos/
-- run "sudo nixos-rebuild switch --flake /etc/nixos/"
-- If that doesn't work, change "switch" into "boot"
+# Installation through Git
+- Run "cd /etc/nixos"
+- Run "nix-shell -p git --run "rm -f configuration.nix && git init && git remote add origin https://github.com/Crendial/Nix-configs && git pull origin main && rm -rf .git"
+- Change all the mentions of YOURUSER to your hostname/username with "sudo nano {filename}
+- Run "sudo nixos-rebuild boot --flake /etc/nixos/"
 - Reboot the system
-- Run a Niri session and change the base config.kdl to the one provided, found at ~/.config/niri
+
+# Manual installation
+- Delete auto generated configuration with "sudo rm -f /etc/nixos/configuration.nix"
+- Recreate the files with "sudo nano /etc/nixos/{filename}" and copy + pasting. This includes config.kdl
+- Make sure all mentions of YOURUSER are changed to your hostname
+- Run "sudo nixos-rebuild boot --flake /etc/nixos/"
+- Reboot the system
+
+# After reboot
 - Run "noctalia-shell" once to initialize it, after that you can either run it again or reboot as it starts on boot
 - Run fastfetch --gen-config to, you know, generate a config.
 
-# Installation (Another OS)
-This section exists just for the Niri config.
+# Niri installation (another OS)
 - I noticed that the Nix flake version and stuff like the AUR version differ in functionailty
-- Look into config.kdl, there are seperate commands for the launcher spawn keybind (Mod + Space) and Noctalia shell spawning at startup
+- Put config.kdl into ~/.config/niri
+- Look into the file with your text editor of choice, there are seperate commands for the launcher spawn keybind (Mod + Space) and Noctalia shell spawning at startup
 - Assuming the defaults didn't work, uncomment the alternatives and remove/comment out the defaults
-- Should be the same otherwise.
 
 # Troubleshooting
 - I haven't tested this stuff on too many systems so some things may still be problematic.
