@@ -19,7 +19,7 @@
     ...
    }: {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      nixos = nixpkgs.lib.nixosSystem { # change the first nixos in this line after first rebuild?
         system = "x86_64-linux";
         specialArgs = { inherit inputs; inherit zen-browser; };
         modules = [
