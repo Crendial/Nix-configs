@@ -16,7 +16,7 @@
     update = ''
       cd /etc/nixos
       sudo nix flake update
-      sudo nixos-rebuild switch --flake /etc/nixos/#YOURUSER
+      sudo nixos-rebuild switch --flake /etc/nixos/
     '';
    };
   };
