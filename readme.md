@@ -9,7 +9,7 @@ Just an archive of my personal Nix and Niri + Noctalia configs. Configuration.ni
 
 # Installation through Git
 - Run "cd /etc/nixos"
-- Run "nix-shell -p git --run "rm -f configuration.nix && git init && git remote add origin https://github.com/Crendial/Nix-configs && git pull origin main && rm -rf .git"
+- Run "nix-shell -p git --run "rm -f configuration.nix && git init && git remote add origin https://github.com/Crendial/Nix-configs && git pull origin main && rm -rf .git && rm -rf readme.md"
 - Change all the mentions of YOURUSER to your hostname/username with "sudo nano {filename}"
 - Run "sudo nixos-rebuild boot --flake /etc/nixos/"
 - Reboot the system
