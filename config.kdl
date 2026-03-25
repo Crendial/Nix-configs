@@ -278,6 +278,7 @@ layout {
 spawn-at-startup "waybar"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "noctalia-shell"
+spawn-at-startup "sh" "-c" "wl-paste --watch cliphist store"
 // spawn-at-startup "qs" "-c" "noctalia-shell" worked on Cachy! Not sure which to use.
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
@@ -344,6 +345,12 @@ window-rule {
     open-maximized true
 }
 // same reason for OBS here.
+
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+    open-focused false
+}
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
