@@ -39,6 +39,8 @@
 
   programs.noctalia-shell.enable = true;
 
+  home.file.".config/niri/config.kdl".source = ./config.kdl;
+
 gtk = {
   enable = true;
   theme = {
