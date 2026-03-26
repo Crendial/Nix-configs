@@ -6,6 +6,8 @@ Just an archive of my personal Nix and Niri + Noctalia configs. Configuration.ni
 - Zen browser as a flake
 - Just software I tend to use
 - An alias for updating and rebuilding the system: "update"
+- Mouse acceleration through maccel
+- Docker mostly ready to go
 
 # Installation through Git
 - Run "cd /etc/nixos"
