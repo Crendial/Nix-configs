@@ -146,7 +146,7 @@
  };
 
  hardware.maccel = {
-    enable = true;
+    enable = true; # disable mouse acceleration by setting to false
     enableCli = true;
     parameters = {
       mode = "linear";
