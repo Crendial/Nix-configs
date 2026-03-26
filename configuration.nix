@@ -4,6 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.maccel.nixosModules.default
     ];
 
  nix = {
@@ -143,6 +144,18 @@
    dates = "weekly";
    options = "--delete-older-than 7d";
  };
+
+ hardware.maccel = {
+    enable = true;
+    enableCli = true;
+    parameters = {
+      mode = "linear";
+      sensMultiplier = 1.0;
+      acceleration = 9000.0;
+      offset = 3.0;
+      outputCap = 2.0;
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
