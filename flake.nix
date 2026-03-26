@@ -8,6 +8,7 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
+    maccel.url = "github:Gnarus-G/maccel";
   };
 
   outputs = inputs@{
