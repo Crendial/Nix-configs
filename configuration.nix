@@ -100,7 +100,7 @@
   users.users.YOURUSER = {
     isNormalUser = true;
     description = "YOURUSER";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "maccel" ];
     shell = pkgs.fish;
     packages = with pkgs; [
       pkgs.prismlauncher
