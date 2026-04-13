@@ -29,8 +29,26 @@
     pkgs.satty
   ];
 
-  programs.fastfetch = {
+ programs.swaylock = {
     enable = true;
+    package = pkgs.swaylock-effects;
+    settings = {
+      screenshots = true;
+      clock = true;
+      indicator = true;
+      indicator-radius = 100;
+      indicator-thickness = 7;
+      effect-blur = "7x5";
+      effect-vignette = "0.5:0.5";
+      color = "1e1e2ecc";
+      ring-color = "cba6f7";
+      key-hl-color = "a6e3a1";
+      text-color = "cdd6f4";
+      line-color = "00000000";
+      inside-color = "1e1e2e88";
+      separator-color = "00000000";
+      fade-in = 0;
+    };
   };
 
   programs.swaylock.enable = true;
@@ -41,15 +59,17 @@
 
   home.file.".config/niri/config.kdl".source = ./config.kdl;
 
-gtk = {
-  enable = true;
-  theme = {
-    name = "Dracula";
-    package = pkgs.dracula-theme;
-  };
-gtk4 = {
-      theme = null;
+  services.udiskie.enable = true;
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Dracula";
+      package = pkgs.dracula-theme;
     };
-};
+  gtk4 = {
+        theme = null;
+      };
+  };
 
 }
