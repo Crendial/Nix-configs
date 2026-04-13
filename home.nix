@@ -23,7 +23,7 @@
 
   home.packages = with pkgs; [
     pkgs.fastfetch
-    pkgs.nautilus
+    pkgs.thunar
     pkgs.grim
     pkgs.slurp
     pkgs.satty
