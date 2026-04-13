@@ -59,8 +59,6 @@
 
   home.file.".config/niri/config.kdl".source = ./config.kdl;
 
-  services.udiskie.enable = true;
-
   gtk = {
     enable = true;
     theme = {
