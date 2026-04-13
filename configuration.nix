@@ -108,6 +108,7 @@
       pkgs.alacritty
       pkgs.vesktop
       pkgs.vscodium
+      pkgs.appimage-run
     ];
   };
 
@@ -155,6 +156,19 @@
       offset = 3.0;
       outputCap = 2.0;
     };
+  };
+
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
+  programs.appimage.package = pkgs.appimage-run.override
+  {
+    extraPkgs = pkgs:
+    [
+      pkgs.icu
+      pkgs.libxcrypt-legacy
+      pkgs.python312
+      pkgs.python312Packages.torch
+    ];
   };
 
   # This value determines the NixOS release from which the default
