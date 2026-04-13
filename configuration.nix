@@ -18,6 +18,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelModules = [ "ntsync" ];
 
   networking.hostName = "YOURUSER"; # Replace that.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -100,7 +101,7 @@
   users.users.YOURUSER = {
     isNormalUser = true;
     description = "YOURUSER";
-    extraGroups = [ "networkmanager" "wheel" "docker" "maccel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "maccel" "storage" ];
     shell = pkgs.fish;
     packages = with pkgs; [
       pkgs.prismlauncher
@@ -170,6 +171,10 @@
       pkgs.python312Packages.torch
     ];
   };
+
+  services.udisks2.enable = true;
+  services.gvfs.enable = true;
+  security.polkit.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
