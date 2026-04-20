@@ -91,6 +91,14 @@
 
   programs.steam.enable = true;
   programs.fish.enable = true;
+
+  programs.thunar.enable = true;
+  programs.xfconf.enable = true;
+  programs.thunar.plugins = with pkgs; [
+    thunar-archive-plugin
+    thunar-volman
+  ];
+
   nixpkgs.config.allowUnfree = true;
   virtualisation.docker.enable = true;
 
