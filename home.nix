@@ -23,10 +23,6 @@
 
   home.packages = with pkgs; [
     pkgs.fastfetch
-    pkgs.thunar
-    pkgs.grim
-    pkgs.slurp
-    pkgs.satty
   ];
 
  programs.swaylock = {
@@ -51,13 +47,15 @@
     };
   };
 
-  programs.swaylock.enable = true;
-
   imports = [ inputs.noctalia.homeModules.default ];
 
   programs.noctalia-shell.enable = true;
 
   home.file.".config/niri/config.kdl".source = ./config.kdl;
+
+  programs.git = {
+    enable = true;
+  };
 
   gtk = {
     enable = true;
