@@ -81,12 +81,11 @@
     extraGroups = [ "networkmanager" "wheel" "docker" "maccel" "storage" ];
     shell = pkgs.fish;
     packages = with pkgs; [
-      pkgs.prismlauncher
-      pkgs.protonup-qt
-      pkgs.alacritty
-      pkgs.vesktop
-      pkgs.vscodium
-      pkgs.appimage-run
+      prismlauncher
+      protonup-qt
+      alacritty
+      vesktop
+      vscodium
     ];
   };
 
