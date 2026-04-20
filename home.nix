@@ -22,7 +22,7 @@
   };
 
   home.packages = with pkgs; [
-    pkgs.fastfetch
+    fastfetch
   ];
 
  programs.swaylock = {
