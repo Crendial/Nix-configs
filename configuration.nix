@@ -103,10 +103,24 @@
   virtualisation.docker.enable = true;
 
   environment.systemPackages = with pkgs; [
-    zen-browser.packages.${pkgs.system}.default
+    zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     xwayland-satellite
+    kdePackages.ark
     docker-compose
-    evtest
+    evtest # for lazy bongo noctalia plugin
+
+    # for screen toolkit noctalia plugin
+    grim
+    slurp
+    (tesseract.override { enableLanguages = [ "eng" "fin" ]; })
+    imagemagick
+    zbar
+    curl
+    translate-shell
+    wl-screenrec
+    ffmpeg
+    gifski
+    jq
   ];
 
  nix.gc = {
