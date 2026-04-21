@@ -23,7 +23,14 @@
 
   home.packages = with pkgs; [
     fastfetch
+    wl-clipboard
   ];
+
+programs.fastfetch = {
+    enable = true;
+  };
+
+services.cliphist.enable = true;
 
  programs.swaylock = {
     enable = true;
