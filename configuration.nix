@@ -78,7 +78,7 @@
   users.users.YOURUSER = {
     isNormalUser = true;
     description = "YOURUSER";
-    extraGroups = [ "networkmanager" "wheel" "docker" "maccel" "storage" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "maccel" "storage" "input" ];
     shell = pkgs.fish;
     packages = with pkgs; [
       prismlauncher
@@ -106,6 +106,7 @@
     zen-browser.packages.${pkgs.system}.default
     xwayland-satellite
     docker-compose
+    evtest
   ];
 
  nix.gc = {
