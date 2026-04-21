@@ -25,6 +25,7 @@ Just an archive of my personal Nix and Niri + Noctalia configs. Configuration.ni
 - Reboot the system
 
 # After reboot
+- Replace "nixos =" line in flake.nix to "YOURUSER ="
 - Run "noctalia-shell" once to initialize it, after that you can either run it again or reboot as it starts on boot
 - Run fastfetch --gen-config to, you know, generate a config.
 
