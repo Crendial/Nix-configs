@@ -8,6 +8,7 @@ Just an archive of my personal Nix and Niri + Noctalia configs. Configuration.ni
 - An alias for updating and rebuilding the system: "update"
 - Mouse acceleration through maccel
 - Docker mostly ready to go
+- Dependencies handled for a few nice Noctalia plugins (slow bongo, screen toolkit)
 
 # Installation through Git
 - Run "cd /etc/nixos"
