@@ -27,6 +27,12 @@
       sudo nix flake update
       sudo nixos-rebuild boot --flake /etc/nixos/
     '';
+
+    updaten = ''
+      cd /etc/nixos
+      sudo nix flake update
+      sudo nixos-rebuild switch --flake /etc/nixos/
+    '';
    };
   };
 
@@ -36,6 +42,10 @@
   ];
 
 programs.fastfetch = {
+    enable = true;
+  };
+
+services.udiskie = {
     enable = true;
   };
 
@@ -63,9 +73,61 @@ services.cliphist.enable = true;
     };
   };
 
+  home.file.".local/share/Steam/compatibilitytools.d/GE-Proton".source = pkgs.proton-ge-bin;
+
   imports = [ inputs.noctalia.homeModules.default ];
 
-  programs.noctalia-shell.enable = true;
+  programs.noctalia-shell = {
+    enable = true;
+    plugins = {
+      sources = [{
+        enabled = true;
+        name = "Official repo";
+        url = "https://github.com/noctalia-dev/noctalia-plugins";
+      }];
+      states = {
+        slowbongo = {
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
+        clipper = {
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
+        screen-toolkit = {
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
+      };
+      version = 2;
+      };
+    settings = {
+      colorSchemes.predefinedScheme = "Dracula";
+      bar = {
+        widgets = {
+          left = [
+            { id = "SystemMonitor"; }
+            { id = "ActiveWindow"; }
+            { id = "MediaMini"; }
+          ];
+          center = [
+            { id = "Workspace"; }
+            { id = "Clock"; }
+            { id = "plugin:slowbongo"; }
+          ];
+          right = [
+          { id = "Tray"; }
+          { id = "plugin:clipper"; }
+          { id = "plugin:screen-toolkit"; }
+          { id = "NotificationHistory"; }
+          { id = "Volume"; }
+          { id = "Brightness"; }
+          { id = "ControlCenter"; }
+         ];
+       };
+      };
+    };
+  };
 
   home.file.".config/niri/config.kdl".source = ./config.kdl;
 
