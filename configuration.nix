@@ -82,7 +82,6 @@
     shell = pkgs.fish;
     packages = with pkgs; [
       prismlauncher
-      protonup-qt
       alacritty
       vesktop
       vscodium
@@ -92,13 +91,6 @@
   programs.steam.enable = true;
   programs.fish.enable = true;
 
-  programs.thunar.enable = true;
-  programs.xfconf.enable = true;
-  programs.thunar.plugins = with pkgs; [
-    thunar-archive-plugin
-    thunar-volman
-  ];
-
   nixpkgs.config.allowUnfree = true;
   virtualisation.docker.enable = true;
 
@@ -107,9 +99,10 @@
     xwayland-satellite
     kdePackages.ark
     docker-compose
-    evtest # for lazy bongo noctalia plugin
+    nautilus
 
-    # for screen toolkit noctalia plugin
+    evtest
+
     grim
     slurp
     (tesseract.override { enableLanguages = [ "eng" "fin" ]; })
@@ -145,6 +138,19 @@
 
   services.gvfs.enable = true;
   security.polkit.enable = true;
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      nautilus = prev.nautilus.overrideAttrs (nprev: {
+        buildInputs =
+          nprev.buildInputs
+          ++ (with pkgs.gst_all_1; [
+            gst-plugins-good
+            gst-plugins-bad
+          ]);
+      });
+    })
+  ];
 
   system.stateVersion = "25.11";
 }
