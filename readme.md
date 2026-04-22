@@ -5,10 +5,10 @@ Just an archive of my personal Nix and Niri + Noctalia configs. Configuration.ni
 - Niri window manager + Noctalia shell, already mostly configured
 - Zen browser as a flake
 - Just software I tend to use
-- An alias for updating and rebuilding the system: "update"
+- An aliases for updating and rebuilding the system: "update" (rebuild boot) and "updaten" (rebuild switch)
 - Mouse acceleration through maccel
 - Docker mostly ready to go
-- Dependencies handled for a few nice Noctalia plugins (slow bongo, screen toolkit, cliphist)
+- Declaratively configured theming, plugins and their dependencies, and the bar layout
 
 # Installation through Git
 - Run "cd /etc/nixos"
