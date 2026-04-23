@@ -7,15 +7,6 @@
 
   programs.home-manager.enable = true;
 
-  home.activation.removeConflictingConfigs = lib.hm.dag.entryBefore ["writeBoundary"] ''
-  rm -f \
-    "${config.home.homeDirectory}/.config/gtk-4.0/settings.ini" \
-    "${config.home.homeDirectory}/.config/gtk-3.0/settings.ini" \
-    "${config.home.homeDirectory}/.config/fish/config.fish" \
-    "${config.home.homeDirectory}/.config/niri/config.kdl" \
-    "${config.home.homeDirectory}/.gtkrc-2.0"
-  '';
-
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
